@@ -5,18 +5,14 @@ import {
   Grid,
   Typography,
   Card,
-  Button,
   Hidden,
   Box,
   withStyles,
   withWidth,
   isWidthUp,
-  TextField
 } from "@material-ui/core";
 import WaveBorder from "../../../shared/components/WaveBorder";
-import ZoomImage from "../../../shared/components/ZoomImage";
 import { useForm } from "react-hook-form";
-import axios from 'axios'
 
 
 const styles = (theme) => ({
