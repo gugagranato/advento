@@ -77,24 +77,24 @@ function NavBar(props) {
         <Toolbar className={classes.toolbar}>
           <div>
             <Typography
-              variant="h4"
+              variant="h5"
               className={classes.brandText}
               display="inline"
               color="primary"
             >
-              Wa
+              Mirella
             </Typography>
             <Typography
-              variant="h4"
+              variant="h5"
               className={classes.brandText}
               display="inline"
               color="secondary"
             >
-              Ver
+              Dellazzari 
             </Typography>
           </div>
           <div>
-            <Hidden mdUp>
+            {/* <Hidden mdUp>
               <IconButton
                 className={classes.menuButton}
                 onClick={handleMobileDrawerOpen}
@@ -102,8 +102,8 @@ function NavBar(props) {
               >
                 <MenuIcon color="primary" />
               </IconButton>
-            </Hidden>
-            <Hidden smDown>
+            </Hidden> */}
+            {/* <Hidden smDown>
               {menuItems.map(element => {
                 if (element.link) {
                   return (
@@ -135,7 +135,7 @@ function NavBar(props) {
                   </Button>
                 );
               })}
-            </Hidden>
+            </Hidden> */}
           </div>
         </Toolbar>
       </AppBar>
