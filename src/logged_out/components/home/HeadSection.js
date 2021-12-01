@@ -126,7 +126,7 @@ function HeadSection(props) {
                       display="flex"
                       flexDirection="column"
                       justifyContent="space-between"
-                      height="100%"
+                      // height="100%"
                     >
                       <Hidden smUp >
                           <Grid item md={6} className={classes.flex}>
