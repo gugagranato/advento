@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -105,6 +105,15 @@ function HeadSection(props) {
   // axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
   // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = 'https://gustavogranato.activehosted.com/f/embed.php?id=1';
+    script.async = true;
+
+    document.body.appendChild(script);
+  }, [])
+
   const onSubmit = async (data) => {
     const params = {
       u: "1",
@@ -117,18 +126,37 @@ function HeadSection(props) {
       or: "b5b82f87de3111a61d0d3ea55d620e82",
       email: data.email
     }
+    const id = '_form_1_'
+    // const url = `https://gustavogranato.activehosted.com/proc.php?u=${id}&f=${id}&s=&c=0&m=0&act=sub&v=2&email=${data.email}&jsonp=true`;
+
     const url = 'https://gustavogranato.activehosted.com/proc.php'
-    fetch(url, {
-      method: 'POST',
-      body: params,
-      mode: 'no-cors',
-    })
-      .then(response => {
-        console.log(response.data)
-      })
-      .catch(error => console.log('Request failed', error));
+    // fetch(url, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
+    try {
+      const response = await fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        // redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(params) // body data type must match "Content-Type" header
+      }).then(res => console.log(res, 'res')).catch(err => console.error(err, 'erro no catch'))
+      console.log(response, 'Response')
+      
+    } catch (error) {
+      console.log(error, 'errro trycath')
     }
-  console.log(watch("example"));
+  }
+  console.log(watch("email"));
   return (
     <Fragment>
       <div className={classNames("lg-p-top", classes.wrapper)}>
@@ -181,31 +209,8 @@ function HeadSection(props) {
                             Aproveite bem o momento.
                           </Typography>
                         </Box>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                          {/* register your input into the hook by invoking the "register" function */}
-                          
-                          {/* include validation with required or other standard HTML validation rules */}
-                          <input {...register("email", { required: true })} />
-                          {/* errors will return when field validation fails  */}
-                          {errors.email && <span>This field is required</span>}
-                          
-                          <input type="submit" />
-                        </form>
-                        {/* <form onSubmit={onSubmit}>
-                          <TextField fullWidth id="outlined-basic" label="E-mail" variant="outlined" />
-                          <Button
-                            variant="contained"
-                            color="secondary"
-                            fullWidth
-                            className={classes.extraLargeButton}
-                            // classes={{ label: classes.extraLargeButtonLabel }}
-                            // href="https://github.com/dunky11/react-saas-template"
-                            type="submit"
-                          >
-                            Quero meu e-book agora
-                          </Button>
-
-                        </form> */}
+                        
+                        <div className="_form_1" />
                       </div>
                     </Box>
                   </Grid>
