@@ -90,74 +90,13 @@ function NavBar(props) {
               display="inline"
               color="secondary"
             >
-              Dellazzari 
+              Dellazzari
             </Typography>
-          </div>
-          <div>
-            {/* <Hidden mdUp>
-              <IconButton
-                className={classes.menuButton}
-                onClick={handleMobileDrawerOpen}
-                aria-label="Open Navigation"
-              >
-                <MenuIcon color="primary" />
-              </IconButton>
-            </Hidden> */}
-            {/* <Hidden smDown>
-              {menuItems.map(element => {
-                if (element.link) {
-                  return (
-                    <Link
-                      key={element.name}
-                      to={element.link}
-                      className={classes.noDecoration}
-                      onClick={handleMobileDrawerClose}
-                    >
-                      <Button
-                        color="secondary"
-                        size="large"
-                        classes={{ text: classes.menuButtonText }}
-                      >
-                        {element.name}
-                      </Button>
-                    </Link>
-                  );
-                }
-                return (
-                  <Button
-                    color="secondary"
-                    size="large"
-                    onClick={element.onClick}
-                    classes={{ text: classes.menuButtonText }}
-                    key={element.name}
-                  >
-                    {element.name}
-                  </Button>
-                );
-              })}
-            </Hidden> */}
           </div>
         </Toolbar>
       </AppBar>
-      <NavigationDrawer
-        menuItems={menuItems}
-        anchor="right"
-        open={mobileDrawerOpen}
-        selectedItem={selectedTab}
-        onClose={handleMobileDrawerClose}
-      />
     </div>
   );
 }
-
-NavBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  handleMobileDrawerOpen: PropTypes.func,
-  handleMobileDrawerClose: PropTypes.func,
-  mobileDrawerOpen: PropTypes.bool,
-  selectedTab: PropTypes.string,
-  openRegisterDialog: PropTypes.func.isRequired,
-  openLoginDialog: PropTypes.func.isRequired
-};
 
 export default withStyles(styles, { withTheme: true })(memo(NavBar));

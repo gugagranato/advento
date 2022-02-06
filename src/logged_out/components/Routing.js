@@ -38,10 +38,4 @@ function Routing(props) {
   );
 }
 
-Routing.propTypes = {
-  blogposts: PropTypes.arrayOf(PropTypes.object),
-  selectHome: PropTypes.func.isRequired,
-  selectBlog: PropTypes.func.isRequired,
-};
-
 export default memo(Routing);
